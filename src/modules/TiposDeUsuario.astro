@@ -1,0 +1,64 @@
+---
+import Switch from '../components/Switch.astro';
+
+const tipos1 = [
+"MAYOR DE 16 AÑOS",
+"MENOR DE 16 AÑOS"
+];
+const tipos2 = [
+"LOS INTERESADOS SON PERSONAS CON DISCAPACIDAD?",
+"LOS INTERESADOS SON PERSONAS MAYORES?",
+"LOS INTERESADOS SON PERSONAS CON ENFERMEDADES FÍSICAS O PSÍQUICAS?"
+];
+const tipos3 = [
+"ASISTIDOS POR SERVICIOS SOCIALES",
+"DESEMPLEADOS",
+"OTROS"
+];
+const tipos4 = [
+"LOS INTERESADOS SON PACIENTES MÉDICOS CON ENFERMEDADES PARTICULARES",
+"LOS INTERESADOS SON EMPLEADOS",
+"LOS INTERESADOS SON EMPLEADORES",
+"USUARIOS DE IOT"
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> AUDITORÍA EXTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS INTERESADOS, CLIENTES O USUARIOS</h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">TIPOS DE USUARIOS E INTERESADOS</h2>
+  <form action="/submit" method="post">
+		<div class="flex items-center justify-between my-4">
+			<span class="text-gray-700 dark:text-gray-400">LA EDAD DE LOS INTERSADOS ES?</span>
+		</div>
+		<div class="ml-4">
+			{tipos1.map((pregunta, index) => (
+				<Switch id={`switch-${index}`} label={pregunta} />
+			))}
+		</div>
+    
+		{tipos2.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+		<div class="flex items-center justify-between my-4">
+			<span class="text-gray-700 dark:text-gray-400">LOS INTERESADOS SON PERSONAS SOCIALMENTE VULNERABLES?</span>
+		</div>
+		<div class="ml-4">
+			{tipos3.map((pregunta, index) => (
+				<Switch id={`switch-${index}`} label={pregunta} />
+			))}
+		</div>
+		{tipos4.map((pregunta, index) => (
+			<Switch id={`switch-${index}`} label={pregunta} />
+		))}
+
+
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

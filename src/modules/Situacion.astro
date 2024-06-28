@@ -1,0 +1,29 @@
+---
+import Switch from '../components/Switch.astro';
+
+const situacion = [
+  "SE GUARDAN LOS DATOS DE SU SUELDO MENSUAL Y ANUAL?", 
+	"SE PROTEGEN SUS DATOS DE SU SITUACIÓN LABORAL?",
+	"EN CUANTO A SU PERSONA, LA EMPRESA TIENE CONOCIMIENTO SI LA PERSONA TIENE BIENES MUEBLES O INMUEBLES?",
+	"EN CUANTO A SU PERSONA, LA EMPRESA TIENE CONOCIMIENTO SI LA PERSONA POSEE DEUDAS?",
+	"EN CUANTO A SU PERSONA, LA EMPRESA TIENE CONOCIMIENTO SI LA PERSONA TIENE PRÉSTAMOS OTORGADOS?"
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> AUDITORÍA INTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS EMPLEADOS O PRESTADORES DE SERVICIO DE LA EMPRESA</h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">SITUACIÓN ECONÓMICA Y FINANCIERA</h2>
+  <form action="/submit" method="post">
+    {situacion.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

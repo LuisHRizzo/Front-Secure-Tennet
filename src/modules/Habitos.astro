@@ -1,0 +1,37 @@
+---
+import Switch from '../components/Switch.astro';
+
+const habitos = [
+	'LA EMPRESA RASTREA O TIENE ALGÚN TIPO DE CONOCIMIENTO DE LOS CONSUMOS REALIZADOS?',
+	'LA EMPRESA TIENE CONOCIMIENTO DEL GRUPO O LOS GRUPOS PERSONALES O LABORALES CON LOS QUE SE RELACIONA?',
+	'LA EMPRESA TIENE CONOCIMIENTOS DE SUS PREFERENCIAS, YA SEA DE CUALQUIER INDOLE?',
+	'LA EMPRESA TIENE CONOCIMIENTO DE SUS ACTIVIDADES PERSONALES O DE OCIO?',
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1
+			class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"
+		>
+			AUDITORÍA EXTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS
+			INTERESADOS, CLIENTES O USUARIOS
+		</h1>
+	</div>
+	<h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+		HÁBITOS Y PREFERENCIAS
+	</h2>
+	<form action="/submit" method="post">
+		{
+			habitos.map((pregunta, index) => (
+				<Switch id={`switch-${index}`} label={pregunta} />
+			))
+		}
+		<button
+			type="submit"
+			class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+		>
+			Enviar
+		</button>
+	</form>
+</section>

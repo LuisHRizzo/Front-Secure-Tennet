@@ -1,0 +1,34 @@
+---
+import Switch from '../components/Switch.astro';
+
+const territorial = [
+  "1.	LA EMPRESA POSEE UN SOLO ESTABLECIMIENTO?", 
+	"2.	LA EMPRESA POSEE MAS DE UN SOLO ESTABLECIMIENTO?",
+	"3.	AQUELLOS ESTABLECIMIENTOS SE ENCUENTRAN DENTRO O FUERA DE LA UNIÓN EUROPEA?",
+	"4.	¿ES UN HOLDING EMPRESARIAL?",
+	"5.	EL RESPONSABLE O ENCARGADO DEL TRATAMIENTO, SÓLO REALIZA TRATAMIENTO DE DATOS PERSONALES A PERSONAS QUE RESIDEN EN LA UNIÓN EUROPEA?",
+	"6.	EL RESPONSABLE O ENCARGADO DEL TRATAMIENTO, REALIZA TRATAMIENTO DE DATOS PERSONALES DE EUROPEOS QUE RESIDEN FUERA DE LA UNIÓN?",
+	"7.	OFERTA DE BIENES Y SERVICIOS A INTERESADOS EN LA UNIÓN (NO ES RELEVANTE QUE SE HAYA REALIZADO UN PAGO)",
+	"8.	MONITOREO O CONTROL DE COMPORTAMIENTO DE USUARIOS, CLIENTES U OTRAS PERSONAS.",
+	"9.	OFRECEN SERVICIOS O PRODUCTOS A INTERESADOS QUE RESIDEN EN OTROS ESTADOS QUE NO SEAN LOS DE LA UNIÓN EUROPEA."
+
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> Bases del tratamiento </h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">ÁMBITO TERRITORIAL</h2>
+  <form action="/submit" method="post">
+    {territorial.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

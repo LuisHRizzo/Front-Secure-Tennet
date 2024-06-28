@@ -1,0 +1,43 @@
+---
+import Switch from '../components/Switch.astro';
+
+const incidentes1 = [
+"CONSIDERA LA NATURALEZA DE LOS DATOS AFECTADOS?",
+"CONSIDERA EL VOLUMEN DE LOS DATOS AFECTADOS?",
+"CONSIDERA SI DICHA INFORMACIÓN SE ENCUENTRA ENCRIPTADA?",
+"CONSIDERA LAS LIBERTADES Y DERECHOS AFECTADOS?"
+
+];
+const incidentes2 = [
+"LA EMPRESA TIENE POSIBILIDAD DE IDENTIFICAR A LOS AFECTADOS?",
+"EN EL CASO QUE LA EMPRESA HAYA SUFRIDO UN ATAQUE, DESDE QUE MOMENTO NOTIFICARÍA A LA AUTORIDAD DE APLICACIÓN Y A LOS AFECTADOS?",
+"POR QUE MEDIO LOS NOTIFICARÍA?"
+
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> AUDITORÍA INTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS EMPLEADOS O PRESTADORES DE SERVICIO DE LA EMPRESA</h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">NOTIFICACIONES Y COMUNICACIONES DE INCIDENTES O BRECHAS DE SEGURIDAD FRENTE A LAS AUTORIDADES Y A LOS USUARIOS</h2>
+  <form action="/submit" method="post">
+    <div class="flex items-center justify-between my-4">
+			<span class="text-gray-700 dark:text-gray-400">REALIZA UNA EVALUACIÓN A LOS FINES DE IDENTIFICAR SI EL INCIDENTE ES NOTIFICABLE O NO?</span>
+		</div>
+    <div class="ml-4">
+		{incidentes1.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+		</div>
+		{incidentes2.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

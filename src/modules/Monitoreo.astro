@@ -1,0 +1,33 @@
+---
+import Switch from '../components/Switch.astro';
+
+const monitoreo = [
+  "SE MONITOREA SUS ACTIVIDADES?", 
+	"SE PRODUCEN GRABACIONES DE AUDIO O VIDEO HACIA SU PERSONA?",
+	"SE MONITOREAN LOS DATOS Y METADATOS DE SU CORREO ELECTRÓNICO?",
+	"SE MONITOREAN LOS MENSAJES DE CHATS EN APLICACIONES INTERNAS DE LA EMPRESA O EXTERNAS?",
+	"SE MONITOREAN SUS LLAMADAS DE TELÉFONO?",
+	"SE MONITOREAN SUS VIDEOLLAMADAS?",
+	"SE MONITOREAN SUS WEBS VISITADAS?", 
+	"SE MONITOREAN SUS CONEXIONES?",
+	"SE MONITOREAN SU NAVEGADOR WEB?"
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> AUDITORÍA INTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS EMPLEADOS O PRESTADORES DE SERVICIO DE LA EMPRESA</h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">MONITOREO DE DATOS</h2>
+  <form action="/submit" method="post">
+    {monitoreo.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

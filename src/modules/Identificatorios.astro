@@ -1,0 +1,40 @@
+---
+import Switch from '../components/Switch.astro';
+
+const identificatorio = [
+"TOMAN EL NOMBRE Y APELLIDO?",
+"CORREO ELECTRÓNICO?",
+"DNI/CUIT/NIF O CUALQUIER DOCUMENTO DE IDENTIDAD?",
+"TELÉFONO?",
+"DIRECCIÓN?",
+"SEGURIDAD SOCIAL?",
+"DIRECCIÓN IP?",
+"SE LE GENERA UN CORREO ELECTRÓNICO A NOMBRE DE LA EMPRESA?",
+"SE LE REALIZA UNA EVALUACIÓN DE DESEMPEÑO? CADA CUÁNTO?",
+"SE PREGUNTAN POR SUS HÁBITOS E INTERESES?",
+"SE EVALÚA SU TEMPERAMENTO?",
+"SE MONITOREA SU CORREO ELECTRÓNICO PERSONAL?",
+"SE MONITOREAN LAS PREFERENCIAS EN SUS SITIOS WEB EN LAS MÁQUINAS DADAS POR LA EMPRESA O EN LAS QUE TRABAJA EN FORMA PRESENCIAL EN LA EMPRESA?",
+"SE LES SOLICITA SUS REDES SOCIALES?",
+"SE LES SOLICITA CONTROLES DE ACCESOS INFORMÁTICOS?",
+"SI PRESENTA UNA QUEJA SOBRE UN COMPAÑERO DE TRABAJO O UN PRESTADOR DE SERVICIOS, SE LES SOLICITAN SUS DATOS O PERSONALES?"
+];
+---
+
+<section class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+	<div class="flex m-auto">
+		<h1 class="p-6 text-4xl font-extrabold m-auto bg-white dark:bg-gray-800 rounded-lg shadow-md"> AUDITORÍA EXTERNA EN MATERIA DE DATOS PERSONALES PARA TODOS LOS INTERESADOS, CLIENTES O USUARIOS</h1>
+	</div>
+	  <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">LA EMPRESA, SOLICITA ESTOS DATOS IDENTIFICATORIOS:</h2>
+  <form action="/submit" method="post">
+    {identificatorio.map((pregunta, index) => (
+      <Switch id={`switch-${index}`} label={pregunta} />
+    ))}
+    <button
+      type="submit"
+      class="mt-4 w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    >
+      Enviar
+    </button>
+  </form>
+</section>
