@@ -11,8 +11,88 @@ const { id, label } = Astro.props;
 
 <div class="flex items-center justify-between my-4">
   <span class="text-gray-700 dark:text-gray-400">{label}</span>
-  <label class="inline-flex relative items-center cursor-pointer">
-    <input type="checkbox" id={id} class="sr-only peer">
-    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600"></div>
-  </label>
+  <div class="inline-flex relative items-center cursor-pointer w-64">
+    <input type="range" min="0" max="4" step="1" id={id} name={id} class="w-full relative z-10" value="0" oninput="updateSlider(event)">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-0 w-full h-2.5 flex items-center justify-between z-0 border border-gray-400 rounded">
+      <div class="w-1/5 h-full bg-gray-500 rounded-l relative" id={`${id}-color-0`}>
+        <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-tiny text-gray-700">nulo</span>
+      </div>
+      <div class="w-1/5 h-full bg-green-400 relative" id={`${id}-color-1`}>
+        <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-tiny text-gray-700">bajo</span>
+      </div>
+      <div class="w-1/5 h-full bg-white relative" id={`${id}-color-2`}>
+        <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-tiny text-gray-700">medio</span>
+      </div>
+      <div class="w-1/5 h-full bg-yellow-300 relative" id={`${id}-color-3`}>
+        <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-tiny text-gray-700">alto</span>
+      </div>
+      <div class="w-1/5 h-full bg-red-500 rounded-r relative" id={`${id}-color-4`}>
+        <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-tiny text-gray-700">muy alto</span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  function updateSlider(event) {
+    const value = event.target.value;
+    for (let i = 0; i <= 4; i++) {
+      document.getElementById(`${event.target.id}-color-${i}`).style.opacity = i == value ? '1' : '0.3';
+    }
+  }
+
+  // Initialize the slider to default position
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById(`${id}`);
+    updateSlider({ target: slider });
+  });
+</script>
+
+<style>
+  input[type="range"]::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin-top: -9px; /* Center the thumb */
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    -moz-appearance: none;
+    appearance: none;
+    background: white;
+    border: 2px solid gray;
+    border-radius: 50%;
+  }
+
+  input[type="range"]::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background: white;
+    border: 2px solid gray;
+    border-radius: 50%;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2.5px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+  }
+
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  .text-tiny {
+    font-size: 0.6rem; /* Custom smaller size */
+  }
+</style>
