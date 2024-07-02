@@ -6,7 +6,7 @@
 	"keywords": [
 		"datos"
 	],
-	"packageManager": "(npm|pnpm|yarn|bun)",
+	"packageManager": "pnpm@8.10.4",
 	"repository": "https://github.com/themesberg/flowbite-astro-admin-dashboard.git",
 	"license": "MIT",
 	"author": "Luis Rizzo.",
