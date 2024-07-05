@@ -1,8 +1,8 @@
 ---
 /* eslint max-lines: 'off' */
 
-import NavPagination from '../components/NavPagination.astro'
-import { asset, fetchData } from '../lib/data.ts'
+import { NavPagination } from '~/components'
+import { asset, fetchData } from '~/lib/data'
 
 const { class: clazz } = Astro.props
 const users = await fetchData('users')

@@ -1,5 +1,5 @@
-import type { endpointsToOperations } from '../pages/api/[...entity].ts'
-import type { playgroundActions } from '../pages/playground/_actions.ts'
+import type { endpointsToOperations } from '~/pages/api/[...entity].ts'
+import type { playgroundActions } from '~/pages/playground/_actions.ts'
 
 export type EndpointsToOperations = typeof endpointsToOperations
 export type Endpoint = keyof EndpointsToOperations

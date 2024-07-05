@@ -1,5 +1,5 @@
-import * as operations from '../../services/index.ts'
 import type { APIRoute } from 'astro'
+import * as operations from '~/services/index.ts'
 
 /* Map REST API endpoints to internal operations
   (GETs only for illustration purpose) */

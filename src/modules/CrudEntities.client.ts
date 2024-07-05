@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-import { fetchData } from '../lib/data.ts'
-import { endpointsToOperations } from '../pages/api/[...entity].ts'
-import type { Endpoint } from '../types/entities.ts'
+import { fetchData } from '~/lib/data.ts'
+import { endpointsToOperations } from '~/pages/api/[...entity].ts'
+import type { Endpoint } from '~/types/entities.ts'
 
 export class CrudEntities extends HTMLElement {
   #body = this.querySelector('tbody')!

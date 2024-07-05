@@ -1,8 +1,8 @@
 ---
 /* eslint max-lines: 'off' */
 
-import { fetchData } from '../lib/data.ts'
-import NavPagination from '../components/NavPagination.astro'
+import { fetchData } from '~/lib/data'
+import { NavPagination } from '~/components'
 
 const products = await fetchData('products')
 ---

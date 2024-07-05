@@ -1,4 +1,4 @@
-import type { PlaygroundAction } from '../../types/entities.ts'
+import type { PlaygroundAction } from '~/types/entities.ts'
 
 export const playgroundActions = ['refetchCrudData', 'hardReloadPage'] as const
 

@@ -35,14 +35,16 @@
 </div>
 
 <script>
-  const themeToggleDarkIcon: HTMLElement | null = document.getElementById('theme-toggle-dark-icon')
+  const themeToggleDarkIcon: HTMLElement | null = document.getElementById(
+    'theme-toggle-dark-icon'
+  )
   const themeToggleLightIcon: HTMLElement | null = document.getElementById(
     'theme-toggle-light-icon'
   )
 
-	if (!themeToggleDarkIcon || !themeToggleLightIcon) {
-		throw new Error('themeToggleDarkIcon or themeToggleLightIcon is null')
-	}
+  if (!themeToggleDarkIcon || !themeToggleLightIcon) {
+    throw new Error('themeToggleDarkIcon or themeToggleLightIcon is null')
+  }
 
   // Change the icons inside the button based on previous settings
   if (
@@ -55,11 +57,12 @@
     themeToggleDarkIcon.classList.remove('hidden')
   }
 
-  const themeToggleBtn: HTMLElement | null = document.getElementById('theme-toggle')
+  const themeToggleBtn: HTMLElement | null =
+    document.getElementById('theme-toggle')
 
-	if (!themeToggleBtn) {
-		throw new Error('themeToggleBtn is null')
-	}
+  if (!themeToggleBtn) {
+    throw new Error('themeToggleBtn is null')
+  }
 
   let event = new Event('dark-mode')
 
