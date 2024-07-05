@@ -67,7 +67,7 @@ const { id, label } = Astro.props
 </div>
 
 <script>
-  function updateSlider(event) {
+  function updateSlider(event: any) {
     const value = event.target.value
     for (let i = 0; i <= 4; i++) {
       document.getElementById(`${event.target.id}-color-${i}`).style.opacity =

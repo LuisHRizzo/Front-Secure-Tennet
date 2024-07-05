@@ -223,7 +223,7 @@ const getMainChartOptions = () => {
           fontSize: '14px',
           fontWeight: 500
         },
-        formatter(value) {
+        formatter(value: any) {
           return `${value}`
         }
       }
