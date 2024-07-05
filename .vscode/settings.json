@@ -5,6 +5,8 @@
 	"typescript.inlayHints.parameterNames.enabled": "all",
 
 	/* —————————————————————————————— Tailwind ———————————————————————————————— */
+  "css.customData": [".vscode/tailwind.json"],
+
 	"tailwindCSS.includeLanguages": {
 		/* 
 		   Astro Language Server can handle Tailwind extension communication,
@@ -34,8 +36,19 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 
 	/* —————————————————————————————— Misc. ———————————————————————————————— */
 
-	"markdown.extension.toc.levels": "2..6"
+	"markdown.extension.toc.levels": "2..6",
+
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	}
 }
